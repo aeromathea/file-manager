@@ -1,0 +1,3 @@
+C:\Users\jacob\source\repos\GreenBerryPro\GreenBerryPro\obj\Debug\GreenBerryPro.njsprojAssemblyReference.cache
+C:\Users\jacob\source\repos\GreenBerryPro\GreenBerryPro\obj\Debug\GreenBerryPro.njsproj.CoreCompileInputs.cache
+C:\Users\jacob\source\repos\GreenBerryPro\GreenBerryPro\bin\Microsoft.NodejsTools.WebRole.dll

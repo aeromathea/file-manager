@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Green Berry</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<link rel="shortcut icon" type="image/png" href="assets/logo.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#303030">
+	</head>
+	<body>
+		<% if (typeof message !== 'undefined') { %>
+			<h1><%= message %></h1>
+		<% } %>
+		<form action="/login" method="post">
+			<input type="text" name="uname">
+			<input type="password" name="pword">
+			<button type="submit">Login</button>
+		</form>
+	</body>
+</html>

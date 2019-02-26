@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title><%= filename %></title>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel='shortcut icon' type='image/png' href='assets/logo.png'/>
+		<style>
+			#vid-info {
+				color: white;
+				font-family: Verdana;
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body style='background-color: #303030;' onkeydown='userInput(event)'>
+		<center>
+			<video id='vid' controls='true' autoplay='true' name='media' width='75%' height='auto' onclick='togglePlay();'>
+				<source src='/videos/<%= filepath %>' type='video/mp4'>
+			</video>
+			<div id='vid-info'>Playback Speed: x1.0</div>
+		</center>
+		<script>
+			function userInput(evt) {
+				var key = evt.keyCode;
+				var vid = document.getElementById('vid');
+				var vidInfo = document.getElementById('vid-info');
+				if (key == 32) { // Spacebar
+					togglePlay();
+				} else if (key == 37) { // Left Arrow
+					vid.currentTime = vid.currentTime - 5;
+				} else if (key == 39) { // Right Arrow
+					vid.currentTime = vid.currentTime + 5;
+				} else if (key == 70) { // f
+					if (isFullScreen()) {
+						document.exitFullscreen();
+					} else {
+						vid.requestFullscreen();
+					}
+				} else if (key == 77) { // m
+					if (vid.muted) {
+						vid.muted = false;
+					} else {
+						vid.muted = true;
+					}
+				} else if (key == 219) { // [
+					vid.playbackRate = vid.playbackRate - 0.1;
+					vidInfo.innerHTML = 'Playback Speed: x' + parseFloat(vid.playbackRate).toFixed(1);
+				} else if (key == 220) { // \
+					vid.playbackRate = 1;
+					vidInfo.innerHTML = 'Playback Speed: x' + parseFloat(vid.playbackRate).toFixed(1);
+				} else if (key == 221) { // ]
+					vid.playbackRate = vid.playbackRate + 0.1;
+					vidInfo.innerHTML = 'Playback Speed: x' + parseFloat(vid.playbackRate).toFixed(1);
+				}
+			}
+
+			function togglePlay() {
+				var vid = document.getElementById('vid');
+				if (vid.paused) {
+					vid.play();
+				} else {
+					vid.pause();
+				}
+			}
+
+			function isFullScreen() {
+				if (document.fullscreenElement && document.fullscreenElement.nodeName == 'VIDEO') {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>
